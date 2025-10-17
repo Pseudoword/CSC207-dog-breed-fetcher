@@ -44,13 +44,12 @@ public class DogApiBreedFetcher implements BreedFetcher {
                     subBreed.add(subBreedJSONArray.getString(i));
                 }
                 return subBreed;
-
             } else {
                 throw new BreedNotFoundException(breed);
             }
 
         } catch (IOException | JSONException event) {
-            throw new BreedNotFoundException(breed);
+            throw new RuntimeException(event);
         }
     }
 }
